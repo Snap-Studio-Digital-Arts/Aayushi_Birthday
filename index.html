@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Aayushi</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&family=Alex+Brush&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      height:100vh;
+      overflow:hidden;
+      background:#151327;
+      font-family:'Poppins',sans-serif;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      position:relative;
+      color:white;
+
+      animation:fadeBody 2s ease;
+    }
+
+    @keyframes fadeBody{
+      from{
+        opacity:0;
+      }
+      to{
+        opacity:1;
+      }
+    }
+
+    .bg1,.bg2{
+      position:absolute;
+      width:320px;
+      height:280px;
+      border-radius:50%;
+      filter:blur(120px);
+      animation:float 8s infinite alternate ease-in-out;
+    }
+
+    .bg1{
+      background:#9f67ff;
+      top:-120px;
+      left:-120px;
+      opacity:.25;
+    }
+
+    .bg2{
+      background:#ff66c4;
+      bottom:-120px;
+      right:-120px;
+      opacity:.2;
+    }
+
+    @keyframes float{
+      from{
+        transform:translateY(0px);
+      }
+      to{
+        transform:translateY(35px);
+      }
+    }
+
+    .container{
+      width:90%;
+      max-width:360px;
+      text-align:center;
+      z-index:10;
+      position:relative;
+    }
+
+    .small{
+      font-size:11px;
+      letter-spacing:8px;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.7);
+      margin-bottom:14px;
+      animation:fadeIn 2s ease;
+    }
+
+
+     .name{
+  font-family:'Alex Brush',cursive;
+  font-size:88px;
+  line-height:1;
+
+  margin-bottom:10px;
+
+  text-shadow:
+  0 0 10px rgba(255,255,255,.45),
+  0 0 25px rgba(255,255,255,.35),
+  0 0 60px rgba(167,139,250,.3);
+
+  animation:zoomIn 2s ease;
+}
+
+    @keyframes zoomIn{
+      from{
+        opacity:0;
+        transform:scale(.7);
+      }
+      to{
+        opacity:1;
+        transform:scale(1);
+      }
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+      }
+      to{
+        opacity:1;
+      }
+    }
+
+    .card{
+      margin-top:36px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:28px;
+      padding:28px 24px;
+      backdrop-filter:blur(15px);
+      box-shadow:0 0 30px rgba(0,0,0,.2);
+    }
+
+    .text{
+      font-size:16px;
+      line-height:26px;
+      color:rgba(255,255,255,.88);
+      font-weight:300;
+      text-align:left;
+    }
+
+    button{
+      width:100%;
+      margin-top:24px;
+      padding:16px;
+      border:none;
+      border-radius:18px;
+      background:white;
+      color:#151327;
+      font-size:15px;
+      font-weight:600;
+      cursor:pointer;
+      transition:.3s;
+
+      box-shadow:0 0 25px rgba(255,255,255,.15);
+      letter-spacing:.5px;
+    }
+
+    button:active{
+      transform:scale(.96);
+    }
+
+    .date{
+      margin-top:35px;
+      font-size:11px;
+      letter-spacing:4px;
+      color:rgba(255,255,255,.45);
+      text-transform:uppercase;
+    }
+
+    .particle{
+      position:absolute;
+      width:3px;
+      height:3px;
+      background:white;
+      border-radius:50%;
+      opacity:.6;
+      animation:particles linear infinite;
+    }
+
+    @keyframes particles{
+      from{
+        transform:translateY(0px);
+        opacity:0;
+      }
+      to{
+        transform:translateY(-100vh);
+        opacity:1;
+      }
+    }
+
+    .highlight{
+      color:#ffd6ff;
+      font-weight:600;
+      text-shadow:0 0 12px rgba(255,255,255,.5);
+    }
+
+    #wishPage{
+      height:320px;
+      overflow:hidden;
+      position:relative;
+    }
+
+    #lyrics{
+      display:flex;
+      flex-direction:column;
+      gap:22px;
+      animation:scrollLyrics 42s linear forwards;
+      animation-play-state:paused;
+    }
+
+    #lyrics p{
+      font-size:16px;
+      line-height:28px;
+      color:rgba(255,255,255,.88);
+      font-weight:300;
+      text-align:left;
+    }
+
+    @keyframes scrollLyrics{
+      from{
+        transform:translateY(25%);
+      }
+      to{
+        transform:translateY(-75%);
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="bg1"></div>
+  <div class="bg2"></div>
+
+  
+<script>
+
+  function startWish(){
+
+    document.getElementById('mainCard').style.display='none';
+
+    document.getElementById('wishPage').style.display='block';
+
+    let music=document.getElementById('bgm');
+
+    let voice=document.getElementById('voice');
+
+    music.volume=0.15;
+
+    voice.volume=1;
+
+    music.play();
+
+    voice.play();
+
+    document.getElementById('lyrics').style.animationPlayState='running';
+
+    voice.onended = function(){
+
+      document.getElementById('endingScreen').style.display='flex';
+
+    };
+
+  }
+
+</script>
+
+  <div class="container">
+
+    <div class="small">
+      Happy Birthday
+    </div>
+
+    <div class="name">
+      Aayushi
+    </div>
+
+    <div class="card" id="mainCard">
+
+      <div class="text" style="text-align:center;">
+        A little birthday surprise made specially for you ✨
+      </div>
+
+      <button onclick="startWish()">
+        Open Wishes 🎂
+      </button>
+
+    </div>
+
+    <div class="card" id="wishPage" style="display:none;">
+
+      <div id="lyrics">
+
+        <p>
+          <span class="highlight">
+            Happy Birthday, Aayushi ✨
+          </span>
+        </p>
+
+        <p>
+          Aaj ka din tumhare liye ekdum perfect aur stress-free ho,
+          meri yahi wish hai.
+        </p>
+
+        <p>
+          Tum sach mein ek genuine aur amazing person ho,
+          isliye tum wo saari happiness deserve karti ho
+          jo is duniya mein hai.
+        </p>
+
+        <p>
+          Umeed hai ki ye naya saal tumhare liye
+          bohot saari peace, growth aur beautiful memories lekar aaye.
+        </p>
+
+        <p>
+          Bas hamesha aise hi positive rehna
+          aur apni smile maintain karna,
+          kyunki tumhari vibe kaafi inspiring hoti hai.
+        </p>
+
+        <p>
+          Enjoy your day to the fullest
+          and have a fantastic year ahead.
+        </p>
+
+        <p>
+          <span class="highlight">
+            Once again, Happy Birthday Aayushi 🎂✨
+          </span>
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="date">
+      10 MAY ✨
+    </div>
+
+  </div>
+
+  <audio id="bgm" src="bgm.mp3"></audio>
+
+  <audio id="voice" src="ElevenLabs_2026-05-06T14_11_05_Anika - Sweet, Lively and Warm_pvc_sp100_s50_sb75_se0_b_m2.mp3"></audio>
+
+  <script>
+
+    function startWish(){
+
+      document.getElementById('mainCard').style.display='none';
+
+      document.getElementById('wishPage').style.display='block';
+
+      let music=document.getElementById('bgm');
+
+      let voice=document.getElementById('voice');
+
+      music.volume=0.15;
+
+      voice.volume=1;
+
+      music.play();
+
+      voice.play();
+
+voice.onended = function(){
+
+  document.getElementById('endingScreen').style.display='flex';
+
+
+      document.getElementById('lyrics').style.animationPlayState='running';
+
+    }
+
+  </script>
+
+<div id="endingScreen" style="
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#151327;
+z-index:999;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+">
+
+  <div style="
+  font-size:12px;
+  letter-spacing:6px;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.6);
+  margin-bottom:12px;
+  ">
+    Best Wishes From
+  </div>
+
+  <div style="
+  font-family:'Alex Brush',cursive;
+  font-size:82px;
+  color:white;
+
+  text-shadow:
+  0 0 10px rgba(255,255,255,.45),
+  0 0 25px rgba(255,255,255,.35),
+  0 0 60px rgba(167,139,250,.3);
+
+  animation:zoomIn 2s ease;
+  ">
+    Yashnil 
+  </div>
+
+</div>
+
+</body>
+</html>
