@@ -251,7 +251,7 @@
 
     music.volume=0.05;
 
-    voice.volume=1.4;
+    voice.volume=1;
 
     music.loop = true;
 
@@ -350,36 +350,7 @@ music.play();
 
   <audio id="voice" src="ElevenLabs_2026-05-06T14_11_05_Anika - Sweet, Lively and Warm_pvc_sp100_s50_sb75_se0_b_m2.mp3"></audio>
 
-  <script>
-
-    function startWish(){
-
-      document.getElementById('mainCard').style.display='none';
-
-      document.getElementById('wishPage').style.display='block';
-
-      let music=document.getElementById('bgm');
-
-      let voice=document.getElementById('voice');
-
-      music.volume=0.15;
-
-      voice.volume=1;
-
-      music.play();
-
-      voice.play();
-
-voice.onended = function(){
-
-  document.getElementById('endingScreen').style.display='flex';
-
-
-      document.getElementById('lyrics').style.animationPlayState='running';
-
-    }
-
-  </script>
+  
 
 <div id="endingScreen" style="
 display:none;
