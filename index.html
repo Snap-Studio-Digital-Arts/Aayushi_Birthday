@@ -15,8 +15,8 @@
       box-sizing:border-box;
     }
 
-body{
-      height:100vh;
+body{      
+min-height:100vh;
       overflow-x:hidden;
       overflow-y:hidden;
       
@@ -195,7 +195,12 @@ from{
 #introScreen{
   position:fixed;
   inset:0;
-  background:#151327;
+  background:
+radial-gradient(
+circle at center,
+#24124a,
+#120d25 70%
+);
   z-index:99999;
   overflow:hidden;
 }
@@ -207,7 +212,7 @@ from{
 
   top:0;
 
-  width:55%;
+  width:52%;
 
   height:100%;
 
@@ -230,6 +235,8 @@ from{
 }
 
 .leftCurtain{
+  left:-2%;
+}
 
   left:-5%;
 
@@ -256,11 +263,14 @@ from{
 }
 
 .rightCurtain{
-  right:0;
+  right:-2%;
 }
 
 #enterBtn{
   position:absolute;
+
+width:85%;
+max-width:320px;
 
   top:50%;
   left:50%;
@@ -522,7 +532,8 @@ animation:pulse 2s infinite;
     }
 
 
-.confetti{
+opacity:.7;
+pointer-events:none;
 
   position:fixed;
 
@@ -566,7 +577,8 @@ animation:pulse 2s infinite;
     }
 
     #wishPage{
-      height:320px;
+      height:360px;
+padding-bottom:40px;
       overflow:hidden;
       position:relative;
     }
@@ -639,7 +651,9 @@ animation:pulse 2s infinite;
   bottom:18px;
   right:10px;
 
-  width:90px;
+  width:72px;
+opacity:.9;
+filter:drop-shadow(0 0 10px rgba(255,255,255,.15));
 
   z-index:50;
 
@@ -945,7 +959,7 @@ function startWish(){
 
 function startConfetti(){
 
-  for(let i=0;i<120;i++){
+  for(let i=0;i<45;i++){
 
     let confetti=document.createElement('div');
 
@@ -1056,5 +1070,6 @@ function createMagicParticles(){
 
 </body>
 </html>
+
 
 
