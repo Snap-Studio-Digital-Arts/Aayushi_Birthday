@@ -269,19 +269,17 @@ circle at center,
 #enterBtn{
   position:absolute;
 
-width:85%;
-max-width:320px;
-
   top:50%;
   left:50%;
 
-  transform:
-  translate(-50%,-50%)
-  scale(.8);
+  transform:translate(-50%,-50%);
 
   opacity:0;
 
-  padding:18px 40px;
+  width:85%;
+  max-width:320px;
+
+  padding:18px 20px;
 
   border:none;
 
@@ -300,16 +298,23 @@ max-width:320px;
   box-shadow:
   0 0 30px rgba(255,255,255,.2);
 
-  transition:1s ease;
+  transition:
+  opacity 1s ease,
+  transform 1s ease;
 }
 
     
 .container{
       width:90%;
       max-width:360px;
+
       text-align:center;
+
       z-index:10;
+
       position:relative;
+
+      margin-top:-80px;
     }
 
     .small{
@@ -323,7 +328,8 @@ max-width:320px;
 
 
      .name{
-  font-family:'Alex Brush',cursive;
+letter-spacing:1px;  
+font-family:'Alex Brush',cursive;
   font-size:88px;
   line-height:1;
 
