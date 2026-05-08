@@ -1,114 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Aayushi</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Aayushi</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Alex+Brush&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&family=Alex+Brush&display=swap" rel="stylesheet">
 
-<style>
+  <style>
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
 
-body{
-  height:100vh;
-  overflow:hidden;
-  font-family:'Poppins',sans-serif;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  position:relative;
-  color:white;
+    body{
+      height:100vh;
+      overflow:hidden;
+      
+background:linear-gradient(
+-45deg,
+#151327,
+#211b3a,
+#2a1f52,
+#151327
+);
 
-  background:linear-gradient(
-  -45deg,
-  #151327,
-  #211b3a,
-  #2a1f52,
-  #151327
-  );
+background-size:400% 400%;
 
-  background-size:400% 400%;
+animation:
+fadeBody 2s ease,
+gradientMove 12s ease infinite;
 
-  animation:
-  gradientMove 12s ease infinite,
-  fadeBody 2s ease;
-}
+      font-family:'Poppins',sans-serif;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      position:relative;
+      color:white;
 
+      animation:fadeBody 2s ease;
+    }
+
+    
 @keyframes gradientMove{
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
-}
 
-@keyframes fadeBody{
-  from{opacity:0;}
-  to{opacity:1;}
-}
-
-.bg1,.bg2{
-  position:absolute;
-  width:320px;
-  height:280px;
-  border-radius:50%;
-  filter:blur(120px);
-  animation:float 8s infinite alternate ease-in-out;
-}
-
-.bg1{
-  background:#9f67ff;
-  top:-120px;
-  left:-120px;
-  opacity:.25;
-}
-
-.bg2{
-  background:#ff66c4;
-  bottom:-120px;
-  right:-120px;
-  opacity:.2;
-}
-
-@keyframes float{
-  from{transform:translateY(0px);}
-  to{transform:translateY(35px);}
-}
-
-.bigGlow{
-  position:absolute;
-  width:500px;
-  height:500px;
-  background:radial-gradient(
-    circle,
-    rgba(255,255,255,.08),
-    transparent 70%
-  );
-  border-radius:50%;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  animation:glowMove 8s ease-in-out infinite;
-  pointer-events:none;
-}
-
-@keyframes glowMove{
   0%{
-    transform:translate(-50%,-50%) scale(1);
+    background-position:0% 50%;
   }
+
   50%{
-    transform:translate(-50%,-50%) scale(1.12);
+    background-position:100% 50%;
   }
+
   100%{
-    transform:translate(-50%,-50%) scale(1);
+    background-position:0% 50%;
   }
+
 }
 
-/* INTRO */
+
+      @keyframes fadeBody{
+from{
+        opacity:0;
+      }
+      to{
+        opacity:1;
+      }
+    }
+
+    .bg1,.bg2{
+      position:absolute;
+      width:320px;
+      height:280px;
+      border-radius:50%;
+      filter:blur(120px);
+      animation:float 8s infinite alternate ease-in-out;
+    }
+
+    .bg1{
+      background:#9f67ff;
+      top:-120px;
+      left:-120px;
+      opacity:.25;
+    }
+
+    .bg2{
+      background:#ff66c4;
+      bottom:-120px;
+      right:-120px;
+      opacity:.2;
+    }
+
+    @keyframes float{
+      from{
+        transform:translateY(0px);
+      }
+      to{
+        transform:translateY(35px);
+      }
+    }
 
 #introScreen{
   position:fixed;
@@ -118,10 +110,15 @@ body{
   overflow:hidden;
 }
 
+
 .curtain{
+
   position:absolute;
+
   top:0;
+
   width:55%;
+
   height:100%;
 
   background:
@@ -143,15 +140,36 @@ body{
 }
 
 .leftCurtain{
+
   left:-5%;
+
+  border-right:2px solid rgba(255,255,255,.08);
+
+  border-top-right-radius:12px;
+
+  border-bottom-right-radius:12px;
 }
 
 .rightCurtain{
+
   right:-5%;
+
+  border-left:2px solid rgba(255,255,255,.08);
+
+  border-top-left-radius:12px;
+
+  border-bottom-left-radius:12px;
+}
+
+.leftCurtain{
+  left:0;
+}
+
+.rightCurtain{
+  right:0;
 }
 
 #enterBtn{
-
   position:absolute;
 
   top:50%;
@@ -159,60 +177,56 @@ body{
 
   transform:
   translate(-50%,-50%)
-  scale(.7);
+  scale(.8);
 
   opacity:0;
 
-  width:260px;
-
-  max-width:85vw;
-
-  padding:18px 24px;
+  padding:18px 40px;
 
   border:none;
 
-  border-radius:60px;
+  border-radius:40px;
 
   background:white;
 
   color:#151327;
 
-  font-size:17px;
+  font-size:18px;
 
   font-weight:600;
 
   cursor:pointer;
 
-  z-index:9999999;
-
   box-shadow:
-  0 0 35px rgba(255,255,255,.18);
+  0 0 30px rgba(255,255,255,.2);
 
   transition:1s ease;
 }
 
-/* MAIN */
-
+    
 .container{
-  width:90%;
-  max-width:360px;
-  text-align:center;
-  z-index:10;
-  position:relative;
-}
+      width:90%;
+      max-width:360px;
+      text-align:center;
+      z-index:10;
+      position:relative;
+    }
 
-.small{
-  font-size:11px;
-  letter-spacing:8px;
-  text-transform:uppercase;
-  color:rgba(255,255,255,.7);
-  margin-bottom:14px;
-}
+    .small{
+      font-size:11px;
+      letter-spacing:8px;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.7);
+      margin-bottom:14px;
+      animation:fadeIn 2s ease;
+    }
 
-.name{
+
+     .name{
   font-family:'Alex Brush',cursive;
   font-size:88px;
   line-height:1;
+
   margin-bottom:10px;
 
   text-shadow:
@@ -221,78 +235,108 @@ body{
   0 0 60px rgba(167,139,250,.3);
 
   animation:
-  zoomIn 2s ease,
-  nameFloat 4s ease-in-out infinite;
+	zoomIn 2s ease,
+	nameFloat 4s ease-in-out infinite;
 }
 
-@keyframes nameFloat{
-  0%{transform:translateY(0px);}
-  50%{transform:translateY(-6px);}
-  100%{transform:translateY(0px);}
-}
+    @keyframes nameFloat{
 
-@keyframes zoomIn{
-  from{
-    opacity:0;
-    transform:scale(.7);
-  }
-  to{
-    opacity:1;
-    transform:scale(1);
-  }
+0%{ transform:translateY(0px);
 }
-
-.card{
-  margin-top:36px;
-  background:rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:28px;
-  padding:28px 24px;
-  backdrop-filter:blur(22px);
-  box-shadow:0 0 30px rgba(0,0,0,.2);
+50%{ transform:translateY(-6px);
 }
+100%{
+transform:translateY(0px); } }
+      @keyframes zoomIn{
+from{
+        opacity:0;
+        transform:scale(.7);
+      }
+      to{
+        opacity:1;
+        transform:scale(1);
+      }
+    }
 
-.text{
-  font-size:16px;
-  line-height:26px;
-  color:rgba(255,255,255,.88);
-}
+   
+@keyframes pulseDate{
 
-button{
-  width:100%;
-  margin-top:24px;
-  padding:16px;
-  border:none;
-  border-radius:18px;
-  background:white;
-  color:#151327;
-  font-size:15px;
-  font-weight:600;
-  cursor:pointer;
-  transition:.3s;
-  animation:pulse 2s infinite;
-}
-
-@keyframes pulse{
   0%{
     transform:scale(1);
-    box-shadow:0 0 25px rgba(255,255,255,.15);
+    opacity:.8;
   }
+
   50%{
-    transform:scale(1.03);
-    box-shadow:0 0 40px rgba(255,255,255,.25);
+    transform:scale(1.08);
+    opacity:1;
   }
+
   100%{
     transform:scale(1);
-    box-shadow:0 0 25px rgba(255,255,255,.15);
+    opacity:.8;
   }
+
 }
 
+@keyframes fadeIn{
+      from{
+        opacity:0;
+      }
+      to{
+        opacity:1;
+      }
+    }
+
+    .card{
+      margin-top:36px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:28px;
+      padding:28px 24px;
+      backdrop-filter:blur(22px);
+      box-shadow:0 0 30px rgba(0,0,0,.2);
+    }
+
+    .text{
+      font-size:16px;
+      line-height:26px;
+      color:rgba(255,255,255,.88);
+      font-weight:300;
+      text-align:left;
+    }
+
+    button{
+      width:100%;
+      margin-top:24px;
+      padding:16px;
+      border:none;
+      border-radius:18px;
+      background:white;
+      color:#151327;
+      font-size:15px;
+      font-weight:600;
+      cursor:pointer;
+      transition:.3s;
+animation:pulse 2s infinite;
+
+      box-shadow:0 0 25px rgba(255,255,255,.15);
+      letter-spacing:.5px;
+    }
+
+    button:active{
+      transform:scale(.96);
+    }
+
+   
 .date{
   margin-top:35px;
+
   font-size:13px;
+
   letter-spacing:6px;
+
   color:#ffd6ff;
+
   text-transform:uppercase;
 
   text-shadow:
@@ -300,67 +344,54 @@ button{
   0 0 25px rgba(255,214,255,.35);
 
   animation:
+  fadeIn 2s ease,
   pulseDate 3s ease-in-out infinite;
 }
 
-@keyframes pulseDate{
+ 
+@keyframes pulse{
+
   0%{
     transform:scale(1);
-    opacity:.8;
+    box-shadow:0 0 25px rgba(255,255,255,.15);
   }
+
   50%{
-    transform:scale(1.08);
-    opacity:1;
+    transform:scale(1.03);
+    box-shadow:0 0 40px rgba(255,255,255,.25);
   }
+
   100%{
     transform:scale(1);
-    opacity:.8;
+    box-shadow:0 0 25px rgba(255,255,255,.15);
   }
-}
 
-.highlight{
-  color:#ffd6ff;
-  font-weight:600;
-  text-shadow:0 0 12px rgba(255,255,255,.5);
 }
+ @keyframes particles{
+      from{
+        transform:translateY(0px);
+        opacity:0;
+      }
+      to{
+        transform:translateY(-100vh);
+        opacity:1;
+      }
+    }
 
-#wishPage{
-  height:320px;
-  overflow:hidden;
-  position:relative;
-}
-
-#lyrics{
-  display:flex;
-  flex-direction:column;
-  gap:22px;
-  animation:scrollLyrics 42s linear forwards;
-  animation-play-state:paused;
-}
-
-#lyrics p{
-  font-size:16px;
-  line-height:28px;
-  color:rgba(255,255,255,.88);
-  text-align:left;
-}
-
-@keyframes scrollLyrics{
-  from{
-    transform:translateY(25%);
-  }
-  to{
-    transform:translateY(-75%);
-  }
-}
 
 .confetti{
+
   position:fixed;
+
   width:10px;
   height:18px;
+
+  background:white;
+
   top:-20px;
-  z-index:1;
-  pointer-events:none;
+
+  z-index:9999;
+
   animation:confettiFall linear forwards;
 }
 
@@ -373,33 +404,132 @@ button{
 }
 
 @keyframes confettiFall{
+
   to{
     transform:
     translateY(110vh)
     rotate(720deg);
+
     opacity:0;
   }
+
+}
+
+
+    .highlight{
+      color:#ffd6ff;
+      font-weight:600;
+      text-shadow:0 0 12px rgba(255,255,255,.5);
+    }
+
+    #wishPage{
+      height:320px;
+      overflow:hidden;
+      position:relative;
+    }
+
+    #lyrics{
+      display:flex;
+      flex-direction:column;
+      gap:22px;
+      animation:scrollLyrics 42s linear forwards;
+      animation-play-state:paused;
+    }
+
+    #lyrics p{
+      font-size:16px;
+      line-height:28px;
+      color:rgba(255,255,255,.88);
+      font-weight:300;
+      text-align:left;
+    }
+
+    .bigGlow{
+  position:absolute;
+
+  width:500px;
+  height:500px;
+
+  background:radial-gradient(
+    circle,
+    rgba(255,255,255,.08),
+    transparent 70%
+  );
+
+  border-radius:50%;
+
+  top:50%;
+  left:50%;
+
+  transform:translate(-50%,-50%);
+
+  animation:glowMove 8s ease-in-out infinite;
+
+  pointer-events:none;
+}
+
+@keyframes glowMove{
+
+  0%{
+    transform:
+    translate(-50%,-50%)
+    scale(1);
+  }
+
+  50%{
+    transform:
+    translate(-50%,-50%)
+    scale(1.12);
+  }
+
+  100%{
+    transform:
+    translate(-50%,-50%)
+    scale(1);
+  }
+
 }
 
 .copyright{
   position:fixed;
+
   bottom:14px;
+
   width:100%;
+
   text-align:center;
+
   font-size:10px;
+
   letter-spacing:2px;
+
   color:rgba(255,255,255,.35);
+
   z-index:999;
 }
 
-</style>
+
+@keyframes scrollLyrics{
+      from{
+        transform:translateY(25%);
+      }
+      to{
+        transform:translateY(-75%);
+      }
+    }
+
+  </style>
 </head>
 
 <body onload="startIntro()">
 
+
+
+
 <div id="introScreen">
 
   <div class="curtain leftCurtain"></div>
+
   <div class="curtain rightCurtain"></div>
 
   <button id="enterBtn" onclick="openWebsite()">
@@ -408,85 +538,132 @@ button{
 
 </div>
 
-<div class="bg1"></div>
-<div class="bg2"></div>
-<div class="bigGlow"></div>
+ 
+ <div class="bg1"></div>
+  <div class="bg2"></div>
+  <div class="bigGlow"></div>
 
-<div class="container">
+  
+<script>
 
-  <div class="small">
-    HAPPY BIRTHDAY
-  </div>
+  function startWish(){
 
-  <div class="name">
-    Aayushi
-  </div>
+    document.getElementById('mainCard').style.display='none';
 
-  <div class="card" id="mainCard">
+    document.getElementById('wishPage').style.display='block';
 
-    <div class="text" style="text-align:center;">
-      A little birthday surprise made specially for you ✨
+    let music=document.getElementById('bgm');
+
+    let voice=document.getElementById('voice');
+
+    music.volume=0.05;
+
+    voice.volume=1;
+
+    music.loop = true;
+
+music.play();
+
+    voice.play();
+
+    document.getElementById('lyrics').style.animationPlayState='running';
+
+    voice.onended = function(){
+
+      document.getElementById('endingScreen').style.display='flex';
+
+    };
+
+  }
+
+</script>
+
+  <div class="container">
+
+    <div class="small">
+      Happy Birthday
     </div>
 
-    <button onclick="startWish()">
-      Open Wishes 🎂
-    </button>
+    <div class="name">
+      Aayushi
+    </div>
 
-  </div>
+    <div class="card" id="mainCard">
 
-  <div class="card" id="wishPage" style="display:none;">
+      <div class="text" style="text-align:center;">
+        A little birthday surprise made specially for you ✨
+      </div>
 
-    <div id="lyrics">
+      <button onclick="startWish()">
+        Open Wishes 🎂
+      </button>
 
-      <p>
-        <span class="highlight">
-          Happy Birthday, Aayushi ✨
-        </span>
-      </p>
+    </div>
 
-      <p>
-        Aaj ka din tumhare liye ekdum perfect aur stress-free ho.
-      </p>
+    <div class="card" id="wishPage" style="display:none;">
 
-      <p>
-        Tum sach mein ek genuine aur amazing person ho.
-      </p>
+      <div id="lyrics">
 
-      <p>
-        Umeed hai ki ye naya saal tumhare liye bohot saari peace aur happiness laaye.
-      </p>
+        <p>
+          <span class="highlight">
+            Happy Birthday, Aayushi ✨
+          </span>
+        </p>
 
-      <p>
-        Bas hamesha aise hi positive rehna aur smile maintain karna.
-      </p>
+        <p>
+          Aaj ka din tumhare liye ekdum perfect aur stress-free ho,
+          meri yahi wish hai.
+        </p>
 
-      <p>
-        Enjoy your day to the fullest and have a fantastic year ahead.
-      </p>
+        <p>
+          Tum sach mein ek genuine aur amazing person ho,
+          isliye tum wo saari happiness deserve karti ho
+          jo is duniya mein hai.
+        </p>
 
-      <p>
-        <span class="highlight">
-          Once Again Happy Birthday Aayushi 🎂✨
-        </span>
-      </p>
+        <p>
+          Umeed hai ki ye naya saal tumhare liye
+          bohot saari peace, growth aur beautiful memories lekar aaye.
+        </p>
 
+        <p>
+          Bas hamesha aise hi positive rehna
+          aur apni smile maintain karna,
+          kyunki tumhari vibe kaafi inspiring hoti hai.
+        </p>
+
+        <p>
+          Enjoy your day to the fullest
+          and have a fantastic year ahead.
+        </p>
+
+        <p>
+          <span class="highlight">
+            Once again, Happy Birthday Aayushi 🎂✨
+          </span>
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="date">
+      10 MAY ✨
     </div>
 
   </div>
 
-  <div class="date">
-    10 MAY ✨
-  </div>
-
-</div>
 
 <div class="copyright">
   © 2026 Snap Studio & Digital Arts
 </div>
 
-<audio id="bgm" src="bgm.mp3"></audio>
 
-<audio id="voice" src="voice.mp3"></audio>
+  <audio id="bgm" src="bgm.mp3"></audio>
+
+  <audio id="voice" src="ElevenLabs_2026-05-06T14_11_05_Anika - Sweet, Lively and Warm_pvc_sp100_s50_sb75_se0_b_m2.mp3"></audio>
+
+  
 
 <div id="endingScreen" style="
 display:none;
@@ -503,29 +680,34 @@ flex-direction:column;
 text-align:center;
 ">
 
-<div style="
-font-size:12px;
-letter-spacing:6px;
-text-transform:uppercase;
-color:rgba(255,255,255,.6);
-margin-bottom:12px;
-">
-Best Wishes From
+  <div style="
+  font-size:12px;
+  letter-spacing:6px;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.6);
+  margin-bottom:12px;
+  ">
+    Best Wishes From
+  </div>
+
+  <div style="
+  font-family:'Alex Brush',cursive;
+  font-size:82px;
+  color:white;
+
+  text-shadow:
+  0 0 10px rgba(255,255,255,.45),
+  0 0 25px rgba(255,255,255,.35),
+  0 0 60px rgba(167,139,250,.3);
+
+  animation:zoomIn 2s ease;
+  ">
+    Yashnil ✨
+  </div>
+
 </div>
 
-<div style="
-font-family:'Alex Brush',cursive;
-font-size:82px;
-color:white;
-text-shadow:
-0 0 10px rgba(255,255,255,.45),
-0 0 25px rgba(255,255,255,.35),
-0 0 60px rgba(167,139,250,.3);
-">
-Yashnil ✨
-</div>
 
-</div>
 
 <script>
 
@@ -619,15 +801,14 @@ function openWebsite(){
   document.getElementById('introScreen')
   .style.display='none';
 
-  setTimeout(()=>{
-
-    startConfetti();
-
-  },400);
+  startConfetti();
 
 }
 
 </script>
 
+
 </body>
 </html>
+
+
