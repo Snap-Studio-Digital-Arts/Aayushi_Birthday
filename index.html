@@ -87,7 +87,7 @@ left:-100px;
 
 .b2{
 width:350px;
-height:350px;
+height:380px;
 background:#ec4899;
 right:-100px;
 top:30%;
@@ -154,29 +154,53 @@ right:-2%;
 
 #enterBtn{
 position:absolute;
+
 top:50%;
 left:50%;
+
 transform:translate(-50%,-50%);
 
-padding:18px 40px;
+padding:18px 42px;
 
 border:none;
-border-radius:50px;
+border-radius:60px;
 
-background:white;
+background:
+linear-gradient(
+135deg,
+#ffffff,
+#ffe4fa,
+#d8b4fe,
+#ffffff
+);
+
+background-size:300% 300%;
+
 color:#1a1033;
 
-font-size:18px;
+font-size:19px;
 font-weight:600;
+
+letter-spacing:.5px;
 
 cursor:pointer;
 
 opacity:0;
 
-box-shadow:
-0 0 30px rgba(255,255,255,.25);
+overflow:hidden;
 
-transition:1s;
+box-shadow:
+0 0 15px rgba(255,255,255,.25),
+0 0 35px rgba(216,180,254,.45),
+0 0 60px rgba(236,72,153,.25);
+
+animation:
+buttonGlow 4s ease infinite,
+buttonFloat 3s ease-in-out infinite;
+
+transition:
+transform .4s ease,
+box-shadow .4s ease;
 }
 
 /* HERO */
@@ -334,27 +358,131 @@ margin-top:25px;
 
 width:100%;
 
-padding:16px;
+padding:17px 20px;
 
 border:none;
-border-radius:20px;
+border-radius:24px;
 
-background:white;
+background:
+linear-gradient(
+135deg,
+#ffffff,
+#ffe4fa,
+#d8b4fe,
+#ffffff
+);
+
+background-size:300% 300%;
+
 color:#1c1236;
 
 font-size:16px;
 font-weight:600;
 
+letter-spacing:.5px;
+
 cursor:pointer;
 
-transition:.3s;
+position:relative;
+
+overflow:hidden;
+
+transition:
+transform .4s ease,
+box-shadow .4s ease;
 
 box-shadow:
-0 0 25px rgba(255,255,255,.18);
+0 0 15px rgba(255,255,255,.25),
+0 0 35px rgba(216,180,254,.35),
+0 0 55px rgba(236,72,153,.18);
+
+animation:
+wishGlow 4s ease infinite,
+wishFloat 3s ease-in-out infinite;
+}
+
+.mainBtn::before{
+content:'';
+
+position:absolute;
+
+top:-120%;
+left:-40%;
+
+width:70%;
+height:320%;
+
+background:
+linear-gradient(
+to right,
+transparent,
+rgba(255,255,255,.85),
+transparent
+);
+
+transform:rotate(25deg);
+
+animation:wishShine 4s linear infinite;
+}
+
+.mainBtn:hover{
+
+transform:
+translateY(-4px)
+scale(1.02);
+
+box-shadow:
+0 0 25px rgba(255,255,255,.4),
+0 0 60px rgba(216,180,254,.55),
+0 0 90px rgba(236,72,153,.25);
 }
 
 .mainBtn:active{
 transform:scale(.96);
+}
+
+@keyframes wishGlow{
+
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
+}
+
+@keyframes wishFloat{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-4px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+@keyframes wishShine{
+
+0%{
+left:-60%;
+}
+
+100%{
+left:180%;
+}
+
 }
 
 /* DATE */
@@ -372,18 +500,31 @@ color:#fbcfe8;
 
 #wishSection{
 display:none;
+
+opacity:0;
+
+transform:
+translateY(80px)
+scale(.9);
 }
 
 .lyrics{
 display:flex;
 flex-direction:column;
-gap:25px;
 
-max-height:350px;
+gap:28px;
 
-overflow:auto;
+height:380px;
+
+overflow:hidden;
+
+padding-top:115px;
+
+padding-bottom:180px;
 
 padding-right:5px;
+
+scroll-behavior:smooth;
 }
 
 .lyrics::-webkit-scrollbar{
@@ -392,8 +533,16 @@ width:0;
 
 .lyrics p{
 font-size:16px;
-line-height:30px;
-color:rgba(255,255,255,.88);
+
+line-height:32px;
+
+color:rgba(255,255,255,.9);
+
+animation:
+fadeLyrics 1s ease;
+
+text-shadow:
+0 0 12px rgba(255,255,255,.05);
 }
 
 .highlight{
@@ -435,6 +584,7 @@ margin:auto;
 }
 
 .memory{
+
 aspect-ratio:1;
 
 border-radius:24px;
@@ -451,14 +601,51 @@ border:1px solid rgba(255,255,255,.1);
 backdrop-filter:blur(20px);
 
 display:flex;
+
 justify-content:center;
 align-items:center;
-
-font-size:50px;
 
 transition:.4s;
 }
 
+.specialCard{
+
+flex-direction:column;
+
+text-align:center;
+
+padding:18px;
+
+gap:10px;
+
+overflow:hidden;
+}
+
+.memoryIcon{
+font-size:24px;
+}
+
+.specialCard h3{
+
+font-size:15px;
+
+font-weight:600;
+
+line-height:22px;
+
+color:#f9c5ff;
+}
+
+.specialCard p{
+
+font-size:11px;
+
+line-height:18px;
+
+color:rgba(255,255,255,.78);
+
+max-width:90%;
+}
 .memory:hover{
 transform:translateY(-8px) scale(1.03);
 }
@@ -532,6 +719,12 @@ margin-top:40px;
 
 display:none;
 
+opacity:0;
+
+transform:
+translateY(80px)
+scale(.8);
+
 font-size:30px;
 font-family:'Great Vibes',cursive;
 
@@ -589,19 +782,40 @@ font-size:12px;
 letter-spacing:4px;
 color:rgba(255,255,255,.4);
 }
+.copyright{
+
+margin-top:18px;
+
+font-size:11px;
+
+letter-spacing:3px;
+
+color:rgba(255,255,255,.25);
+
+text-align:center;
+
+padding-bottom:20px;
+}
 
 /* CHIBI */
 
 .chibi{
 position:fixed;
-bottom:12px;
-right:8px;
 
-width:72px;
+bottom:0px;
+right:-12px;
+
+width:125px;
 
 z-index:999;
 
-animation:floatChibi 3s ease-in-out infinite;
+pointer-events:none;
+
+filter:
+drop-shadow(0 0 18px rgba(255,255,255,.18));
+
+animation:
+floatChibi 3s ease-in-out infinite;
 }
 
 @keyframes floatChibi{
@@ -648,7 +862,142 @@ opacity:0;
 }
 
 /* MOBILE */
+#enterBtn::before{
+content:'';
 
+position:absolute;
+
+top:-120%;
+left:-40%;
+
+width:70%;
+height:320%;
+
+background:
+linear-gradient(
+to right,
+transparent,
+rgba(255,255,255,.85),
+transparent
+);
+
+transform:rotate(25deg);
+
+animation:buttonShine 4s linear infinite;
+}
+
+#enterBtn:hover{
+
+transform:
+translate(-50%,-50%)
+scale(1.05);
+
+box-shadow:
+0 0 25px rgba(255,255,255,.4),
+0 0 60px rgba(216,180,254,.7),
+0 0 90px rgba(236,72,153,.35);
+}
+
+@keyframes buttonGlow{
+
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
+}
+
+@keyframes buttonFloat{
+
+0%{
+transform:
+translate(-50%,-50%)
+translateY(0px);
+}
+
+50%{
+transform:
+translate(-50%,-50%)
+translateY(-6px);
+}
+
+100%{
+transform:
+translate(-50%,-50%)
+translateY(0px);
+}
+
+}
+
+@keyframes buttonShine{
+
+0%{
+left:-60%;
+}
+
+100%{
+left:180%;
+}
+
+}
+
+.transitionFlash{
+position:fixed;
+
+inset:0;
+
+background:
+radial-gradient(
+circle,
+rgba(255,255,255,.35),
+transparent 70%
+);
+
+z-index:999999;
+
+pointer-events:none;
+
+animation:flashFade 2s ease forwards;
+}
+
+@keyframes flashFade{
+
+0%{
+opacity:0;
+transform:scale(.8);
+}
+
+30%{
+opacity:1;
+transform:scale(1);
+}
+
+100%{
+opacity:0;
+transform:scale(1.4);
+}
+
+}	
+@keyframes fadeLyrics{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0px);
+}
+
+}
 @media(max-width:600px){
 
 .gallery{
@@ -740,32 +1089,39 @@ Happy Birthday, Aayushi ✨
 </p>
 
 <p>
-Aaj ka din tumhare liye ekdum perfect aur stress-free ho,
-meri yahi wish hai.
+Aaj ka din tumhare liye ekdum perfect
+aur stress-free ho,
+meri yahi wish hai 💜
 </p>
 
 <p>
-Tum sach mein ek genuine aur amazing person ho,
-aur tum duniya ki saari happiness deserve karti ho.
+Tum sach mein ek genuine
+aur amazing person ho,
+isliye tum wo saari happiness deserve karti ho
+jo is duniya mein hai ✨
 </p>
 
 <p>
-Umeed hai ki ye naya saal tumhare liye
-peace, growth aur beautiful memories lekar aaye.
+Umeed hai ki ye naya saal
+tumhare liye bohot saari peace,
+growth aur beautiful memories lekar aaye 🌸
 </p>
 
 <p>
-Bas hamesha aise hi smile karti rehna,
-because your vibe is genuinely beautiful.
+Bas hamesha aise hi positive rehna
+aur apni smile maintain karna,
+kyunki tumhari vibe kaafi inspiring hoti hai 💖
 </p>
 
 <p>
-Enjoy your special day to the fullest 🎂✨
+Enjoy your day to the fullest
+and have a fantastic year ahead 🎂✨
 </p>
 
 <p>
 <span class="highlight">
-Once again, Happy Birthday Aayushi 💜
+Once again,
+Happy Birthday Aayushi 💜
 </span>
 </p>
 
@@ -784,15 +1140,62 @@ Once again, Happy Birthday Aayushi 💜
 <section class="memories">
 
 <div class="sectionTitle">
-Our Memories ✨
+Things That Make You Special ✨
 </div>
 
 <div class="gallery">
 
-<div class="memory">🌸</div>
-<div class="memory">💖</div>
-<div class="memory">✨</div>
-<div class="memory">🌙</div>
+<div class="memory specialCard">
+
+<div class="memoryIcon">💖</div>
+
+<h3>Your Smile</h3>
+
+<p>
+Your smile genuinely
+changes the whole vibe ✨
+</p>
+
+</div>
+
+<div class="memory specialCard">
+
+<div class="memoryIcon">🌸</div>
+
+<h3>Your Nature</h3>
+
+<p>
+You have one of the
+calmest and sweetest energies 💜
+</p>
+
+</div>
+
+<div class="memory specialCard">
+
+<div class="memoryIcon">✨</div>
+
+<h3>Your Presence</h3>
+
+<p>
+Talking to you always
+feels comforting and peaceful 🌙
+</p>
+
+</div>
+
+<div class="memory specialCard">
+
+<div class="memoryIcon">🦋</div>
+
+<h3>Your Vibe</h3>
+
+<p>
+Your positivity feels
+genuinely inspiring 💫
+</p>
+
+</div>
 
 </div>
 
@@ -838,8 +1241,8 @@ Open Your Surprise 🎁
 
 <div class="surpriseMessage" id="surpriseMessage">
 
-You are not just special... 💜  
-You are a whole feeling ✨
+Life feels a little more beautiful💫
+with good friends like you 🌸💫
 
 </div>
 
@@ -856,7 +1259,11 @@ Made specially for Aayushi 💜
 </div>
 
 <div class="footer">
-BY YASH ✨
+Made with 💜 by Yashnil
+</div>
+
+<div class="copyright">
+© 2026 Snap Studio & Digital Arts
 </div>
 
 </section>
@@ -901,10 +1308,50 @@ btn.style.opacity='1';
 
 function openWebsite(){
 
-document.getElementById('intro')
-.style.display='none';
+let intro=document.getElementById('intro');
+let music=document.getElementById('bgm');
+
+music.volume=.08;
+
+music.loop=true;
+
+music.play();
+
+let btn=document.getElementById('enterBtn');
+
+btn.style.pointerEvents='none';
+
+btn.style.transform=
+'translate(-50%,-50%) scale(.92)';
+
+btn.style.opacity='.7';
+
+document.querySelector('.left')
+.style.transform='translateX(-160%) rotate(-8deg)';
+
+document.querySelector('.right')
+.style.transform='translateX(160%) rotate(8deg)';
+
+intro.style.transition='2s ease';
+
+intro.style.background=
+'radial-gradient(circle,#3b1d68,#12081f)';
+
+createTransitionFlash();
+
+setTimeout(()=>{
+
+intro.style.opacity='0';
+
+},1200);
+
+setTimeout(()=>{
+
+intro.style.display='none';
 
 startSparkles();
+
+},2200);
 
 }
 
@@ -912,11 +1359,44 @@ startSparkles();
 
 function startWish(){
 
-document.getElementById('mainCard')
-.style.display='none';
+let mainCard=
+document.getElementById('mainCard');
 
-document.getElementById('wishSection')
-.style.display='block';
+let wishSection=
+document.getElementById('wishSection');
+
+mainCard.style.transition=
+'.8s ease';
+
+mainCard.style.transform=
+'scale(.88) translateY(40px)';
+
+mainCard.style.opacity='0';
+
+setTimeout(()=>{
+
+mainCard.style.display='none';
+
+wishSection.style.display='block';
+
+wishSection.style.opacity='0';
+
+wishSection.style.transform=
+'translateY(80px) scale(.9)';
+
+setTimeout(()=>{
+
+wishSection.style.transition=
+'1.2s cubic-bezier(.22,1,.36,1)';
+
+wishSection.style.opacity='1';
+
+wishSection.style.transform=
+'translateY(0px) scale(1)';
+
+},100);
+
+},700);
 
 let music=document.getElementById('bgm');
 
@@ -926,9 +1406,34 @@ music.volume=.08;
 
 voice.volume=1;
 
-music.play();
+
+setTimeout(()=>{
 
 voice.play();
+
+},800);
+
+/* AUTO SCROLL */
+
+let lyrics=
+document.querySelector('.lyrics');
+
+let scrollAmount=0;
+
+setTimeout(()=>{
+
+setInterval(()=>{
+
+scrollAmount+=1;
+
+lyrics.scrollTo({
+top:scrollAmount,
+behavior:'smooth'
+});
+
+},83);
+
+},1200);
 
 }
 
@@ -936,13 +1441,62 @@ voice.play();
 
 function showSurprise(){
 
-document.getElementById('surpriseMessage')
-.style.display='block';
+let btn=
+document.querySelector('.surpriseBtn');
+
+let message=
+document.getElementById('surpriseMessage');
+
+/* BUTTON ANIMATION */
+
+btn.style.transition=
+'.8s cubic-bezier(.22,1,.36,1)';
+
+btn.style.transform=
+'scale(.85) translateY(20px)';
+
+btn.style.opacity='0';
+
+/* FLASH EFFECT */
+
+createSurpriseFlash();
+
+/* MESSAGE REVEAL */
+
+setTimeout(()=>{
+
+btn.style.display='none';
+
+message.style.display='block';
+
+message.style.opacity='0';
+
+message.style.transform=
+'translateY(80px) scale(.8)';
+
+setTimeout(()=>{
+
+message.style.transition=
+'1.4s cubic-bezier(.22,1,.36,1)';
+
+message.style.opacity='1';
+
+message.style.transform=
+'translateY(0px) scale(1)';
+
+},100);
+
+},700);
+
+/* CONFETTI */
+
+setTimeout(()=>{
 
 startConfetti();
 
-}
+},500);
 
+}
 /* CONFETTI */
 
 function startConfetti(){
@@ -979,6 +1533,36 @@ confetti.remove();
 
 /* SPARKLES */
 
+function createTransitionFlash(){
+
+let flash=document.createElement('div');
+
+flash.classList.add('transitionFlash');
+
+document.body.appendChild(flash);
+
+setTimeout(()=>{
+flash.remove();
+},2000);
+
+}
+
+function createSurpriseFlash(){
+
+let flash=document.createElement('div');
+
+flash.classList.add('transitionFlash');
+
+flash.style.background=
+'radial-gradient(circle, rgba(255,105,180,.35), transparent 70%)';
+
+document.body.appendChild(flash);
+
+setTimeout(()=>{
+flash.remove();
+},2000);
+
+}
 function startSparkles(){
 
 setInterval(()=>{
